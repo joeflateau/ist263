@@ -96,8 +96,19 @@ gulp.task('express', function() {
   var io = socketIo(server)
   app.use(express.static(path.resolve('./dist')));
 
+  var votes = {};
   io.on('connection', function(socket){
-    socket.emit('test', '123');
+    socket.on('vote', function(data){
+      var id = data.id,
+          index = data.index;
+
+      if (!votes[id]) votes[id] = {};
+      if (!votes[id][index]) votes[id][index] = 0;
+
+      votes[id][index]++;
+
+      io.emit('vote:' + id, Object.keys(votes[id]).map(function(key){ return { key: key, value: votes[id][key]};}));
+    });
   });
 
   server.listen(1337);

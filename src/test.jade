@@ -1,0 +1,24 @@
+extends ./layout.jade
+
+block slides
+
+  +slide()(class="slide")
+    h1 IST 263
+    h2 Intro to Web Design
+    h3 Professor Joe Flateau
+    p
+      | jeflatea@syr.edu
+      br
+      | @joeflateau
+    p
+      | 335 Hinds Hall
+    .notes
+      | Don't talk too much about yourself
+
+  +slide(1500, 0, 0)
+    h2.huge 
+      q What will I learn in this course?
+
+  +slide(1500, 0, -1000)(class="slide")
+    h2 Which is the frob knobber?
+    +poll("frob-knobber", ["Option A", "Option B", "Option C"])
