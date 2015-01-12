@@ -1,0 +1,69 @@
+body {
+	font-family:"Open Sans", sans-serif;
+	background:radial-gradient(#002b36, #073642);
+	color:white;
+}
+
+h1 {
+	color:#b58900;
+}
+
+.huge {
+	font-size: 300%;
+	font-weight: 100;
+}
+
+.step {
+    position: relative;
+    width: 900px;
+    padding: 40px;
+    margin: 20px auto;
+    font-size: 30px;
+    line-height: 1.2;
+    letter-spacing: -1px;
+    opacity: 0.1;
+    transition:250ms ease all;
+
+    &.present {
+    	opacity:1;
+    }
+}
+
+.step .notes {
+	display: none;
+}
+
+.slide {
+    display: block;
+
+    width: 900px;
+    height: 700px;
+    padding: 40px 60px;
+
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, .3);
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, .1);
+
+    color: rgb(102, 102, 102);
+    text-shadow: 0 2px 2px rgba(0, 0, 0, .1);
+
+    font-family: 'Open Sans', Arial, sans-serif;
+    font-size: 30px;
+    line-height: 36px;
+    letter-spacing: -1px;
+}
+
+.slide li,
+.slide p {
+	margin-bottom: 2em;
+}
+
+.hashtag {
+	color:white;
+	font-style: italic;
+	position: fixed;
+	right:10px;
+	bottom: 10px;
+	font-size: 40px;
+}

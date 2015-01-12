@@ -1,0 +1,21 @@
+mixin slide(x, y, z, rotX, rotY, rotZ)
+  div(data-x=x,data-y=y,data-z=z,data-rotate-x=rotX,data-rotate-y=rotY,data-rotate-z=rotZ,class=(attributes.class||"") + " step")
+    block
+
+doctype html
+html(lang="en")
+  head
+    title= ""
+    link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Open+Sans:light,regular,semibold,italic,italicsemibold')
+    link(rel='stylesheet', href='assets/css/pres.css')
+    meta(name="viewport", content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;")
+  body
+    div#impress
+      block slides
+    script(src="//cdnjs.cloudflare.com/ajax/libs/impress.js/0.5.3/impress.min.js")
+    script(src="assets/scripts/all.min.js")
+    script.
+        impress().init();
+        impressConsole().init('assets/css/impressConsole.css');
+
+    .hashtag #IST263JF
