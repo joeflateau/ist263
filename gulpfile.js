@@ -10,6 +10,7 @@ var gulp        = require('gulp'),
     livereload  = require('gulp-livereload'), // Livereload plugin needed: https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei
     tinylr      = require('tiny-lr'),
     express     = require('express'),
+    socketIo    = require('socket.io'),
     app         = express(),
     marked      = require('marked'), // For :markdown filter in jade
     path        = require('path'),
@@ -91,8 +92,15 @@ gulp.task('images-original', function(){
 });
 
 gulp.task('express', function() {
+  var server = require('http').createServer(app);
+  var io = socketIo(server)
   app.use(express.static(path.resolve('./dist')));
-  app.listen(1337);
+
+  io.on('connection', function(socket){
+    socket.emit('test', '123');
+  });
+
+  server.listen(1337);
   gutil.log('Listening on port: 1337');
 });
 

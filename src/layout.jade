@@ -13,9 +13,12 @@ html(lang="en")
     div#impress
       block slides
     script(src="//cdnjs.cloudflare.com/ajax/libs/impress.js/0.5.3/impress.min.js")
+    script(src="/socket.io/socket.io.js")
     script(src="assets/scripts/all.min.js")
     script.
-        impress().init();
+        var _impress = impress().init();
         impressConsole().init('assets/css/impressConsole.css');
+        var socket = io();
+        socket.on('test', function(data){ console.log(data); });
 
     .hashtag #IST263JF
