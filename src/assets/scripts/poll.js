@@ -19,7 +19,7 @@ $.fn.poll = function(options){
 	          });
 
 	        $options.on('click', function(){
-	            socket.emit('vote', {id:id,index:$(this).index()});
+	            socket.emit('vote', {id:id,index:$(this).text()});
 	          });
 	        
 	      });
