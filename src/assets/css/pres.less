@@ -13,6 +13,7 @@ h1 {
 	font-weight: 100;
 }
 
+
 .step {
     position: relative;
     width: 900px;
@@ -54,6 +55,19 @@ h1 {
     letter-spacing: -1px;
 }
 
+.impress-not-supported .step {
+    opacity: 1;
+    width: auto;
+    height:auto;
+    font-size: 14px;
+}
+
+.slide h1,
+.slide h2,
+.slide h3,
+.slide h4,
+.slide h5,
+.slide h6,
 .slide li,
 .slide p {
 	margin-bottom: 2em;
@@ -61,12 +75,12 @@ h1 {
 
 .poll {
     ul {
-        float:left;
+        display: inline-block;
         width:33%;
     }
 
     svg {
-        float:left;
+        display: inline-block;
         width:50%;
         height:80%;
     }
