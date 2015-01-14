@@ -3,8 +3,9 @@ extends ./layout.jade
 block slides
 
   +slide().slide
-    h1 IST 263
+    h1.huge IST 263
     h2 How Does the Web Work?
+    h3 Professor Joe Flateau
 
   +slide(1500, 0, 0)
     h2 Common Knowledge:
@@ -72,7 +73,7 @@ block slides
 
   +slide(4500, 0, -5000)
     h2 But it's not very pretty!
-    p CSS: Cascacding Style Sheets
+    h2.huge CSS: Cascacding Style Sheets
 
   +slide(4500, 1000, -1000).slide
     h2.huge CSS is the language that tells the browser
@@ -106,7 +107,7 @@ block slides
 
   +slide(4500, 1000, -5000)
     h2 But it doesn't really DO anything.
-    p JavaScript
+    h2.huge JavaScript
 
   +slide(4500, 2000, -1000).slide
     h2.huge JavaScript is the language that tells the browser
@@ -141,3 +142,12 @@ block slides
       br
       | JavaScript [BEHAVIOR]
     p Are the building blocks of web pages and web applications.
+
+  +slide(9000, 1000, 2000, 0, 55)
+    h2.huge What tools do we use to create these mystical documents???
+
+  +slide(9000, 2000, 2000, 0, 55)
+    h2 Sublime Text
+    img(src='http://bootstrapbay.com/blog/wp-content/uploads/2014/09/sublimetext.png', width='300')
+    img(src='http://upload.wikimedia.org/wikipedia/en/archive/8/82/20121122135300!Sublime-text-2-screenshot.png', width='500')
+    h2.huge FREE
