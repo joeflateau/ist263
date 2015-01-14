@@ -49,7 +49,7 @@ html(lang="en")
         var id = '#{id}';
         var steps = $(".step");
         socket.emit('join', id);
-        $("body").on("click", ".step", function(e) {
+        $("body").on("click touch", ".step", function(e) {
           var i = steps.index(this);
           socket.emit('newSlide', id, i);
         });
