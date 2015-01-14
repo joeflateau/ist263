@@ -55,13 +55,6 @@ h1 {
     letter-spacing: -1px;
 }
 
-.impress-not-supported .step {
-    opacity: 1;
-    width: auto;
-    height:auto;
-    font-size: 14px;
-}
-
 .slide h1,
 .slide h2,
 .slide h3,
@@ -70,7 +63,32 @@ h1 {
 .slide h6,
 .slide li,
 .slide p {
-	margin-bottom: 2em;
+    margin-bottom: 2em;
+}
+
+.impress-not-supported{
+    .step {
+        opacity: 1;
+        width: auto;
+        height:auto;
+        font-size: 14px;
+    }
+
+    .slide {
+        padding:4px 6px;
+        line-height: 1.2;
+    }
+
+    .slide h1,
+    .slide h2,
+    .slide h3,
+    .slide h4,
+    .slide h5,
+    .slide h6,
+    .slide li,
+    .slide p {
+        margin-bottom: 0.2em;
+    }
 }
 
 .poll {
