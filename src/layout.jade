@@ -34,7 +34,6 @@ html(lang="en")
         $(".poll").poll();
 
     if mode == "present"
-      a.remote(target="_blank") Remote Control This
       script.
         var id = localStorage.getItem("user-id");
         if (!id) {
@@ -46,7 +45,9 @@ html(lang="en")
           console.log(newSlide);
           impress().goto(newSlide);
         });
-        $(".remote").attr("href", "/#{deck}/remote/" + id);
+        $(document).on("keyup", function(e){
+          if (String.fromCharCode(e.which).toLowerCase() === 'r') window.open("/#{deck}/remote/" + id, "_blank");
+          });
 
     if mode == "remote"
       script.
