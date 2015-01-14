@@ -1,0 +1,143 @@
+extends ./layout.jade
+
+block slides
+
+  +slide().slide
+    h1 IST 263
+    h2 How Does the Web Work?
+
+  +slide(1500, 0, 0)
+    h2 Common Knowledge:
+    p Your "browser" downloads a "page" from a "server".
+
+  +slide(1750, 60, 0, 0, 0, 0, 0.05)
+    p It's not quite that simple.
+
+  +slide(3000, 0, 0).slide
+    h2.huge First the browser connects to a server and downloads an HTML document.
+
+  +slide(3000, 0, -1000).slide
+    h2 Then, that HTML document is "parsed".
+    h2 Parsed: Examined, Analyzed, Understood
+
+  +slide(3000, 0, -2000).slide
+    h2 Then the browser downloads each individual external resouce
+      | (Images, StyleSheets, Scripts, etc)
+  
+  +slide(3000, 0, -3000).slide
+    h2 Finally, the StyleSheets are applied,
+      | the JavaScript executes and the Document is displayed
+
+  +slide(3000, 0, -4000)
+    h2.huge Oh, and all of this happens in about 700 milliseconds
+
+  +slide(4500, 0, 0).slide
+    h2 The language of the Web
+    p HTML: HyperText Markup language
+    p HyperText: A software system that links topics on the screen
+      | to related information and grapahics, which are typically
+      | accessed by a point-and-click method.
+
+  +slide(4500, 0, -1000).slide
+    h2.huge HTML is the language that tells the browser
+      em what content to display
+      | on a page
+  
+  +slide(4500, 0, -2000).slide
+    h2.huge HTML consists of a hierarchy of elements such as
+      | headings, paragraphs, images and links (hyperlinks).
+
+  +slide(4500, 0, -3000).slide
+    h2 An HTML document
+    pre.html
+      :escape
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <title>Welcome</title>
+        </head>
+        <body>
+          <h1>Welcome to IST 263</h1>
+          <h2>Course Title</h2>
+          <p>Web Design: Combining 
+             Entrepeneurial Methods
+             with Real World
+             Projects</p>
+        </body>
+        </html>
+
+  +slide(4500, 0, -4000)
+    h3 Result:
+    img(src='/assets/images/html-only-page.png')
+
+  +slide(4500, 0, -5000)
+    h2 But it's not very pretty!
+    p CSS: Cascacding Style Sheets
+
+  +slide(4500, 1000, -1000).slide
+    h2.huge CSS is the language that tells the browser
+      em how to display
+      | the content of a page
+
+  +slide(4500, 1000, -2000).slide
+    h2.huge HTML consists of a series of rules that define how
+      | certain elements should be displayed
+
+  +slide(4500, 1000, -3000).slide
+    h2 A CSS document
+    pre.css
+      :escape
+        body {
+            background:black;
+            color:white;
+            font-family:arial, sans-serif;
+        }
+        h1 {
+            font-variant:small-caps;
+            color:gray;
+        }
+        p {
+            font-style:italic;
+        }
+
+  +slide(4500, 1000, -4000)
+    h3 Result:
+    img(src='/assets/images/html-and-css-page.png')
+
+  +slide(4500, 1000, -5000)
+    h2 But it doesn't really DO anything.
+    p JavaScript
+
+  +slide(4500, 2000, -1000).slide
+    h2.huge JavaScript is the language that tells the browser
+      em what to do
+      | with the content on the page
+
+  +slide(4500, 2000, -2000).slide
+    h2.huge JavaScript documents consist of a series of statements
+      | that add advanced behavior to your page.
+
+  +slide(4500, 2000, -3000).slide
+    h2 A JavaScript document (script)
+    pre.js
+      :escape
+        var name = prompt('What is your name?');
+        document.write('Hello, ' + name);
+
+  +slide(4500, 2000, -4000)
+    h3 Result:
+    img(src='/assets/images/html-css-and-javascript-page.png')
+
+  +slide(4500, 2000, -5000)
+    h3 Result:
+    img(src='/assets/images/html-css-and-javascript-output-page.png')
+
+  +slide(4500, 500, 2000, 15)
+    h2 Three important languages:
+    p 
+      | HTML: HyperText Markup Language [CONTENT]
+      br
+      | CSS: Cascading StyleSheets [PRESENTATION]
+      br
+      | JavaScript [BEHAVIOR]
+    p Are the building blocks of web pages and web applications.

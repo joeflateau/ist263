@@ -11,6 +11,12 @@ h1 {
 .huge {
 	font-size: 300%;
 	font-weight: 100;
+    line-height: 1.1;
+
+    em {
+        padding-left: 0.4em;
+        padding-right: 0.4em;
+    }
 }
 
 
@@ -35,13 +41,21 @@ h1 {
 }
 
 .slide {
-    display: block;
+    display: flex;
+    align-content:center;
+    align-items:center;
+    justify-content:center;
+    flex-flow:column wrap;
 
     width: 900px;
     height: 700px;
     padding: 40px 60px;
 
     background-color: white;
+
+    &.translucent {
+        background-color: rgba(255,255,255,0.5);
+    }
     border: 1px solid rgba(0, 0, 0, .3);
     border-radius: 10px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, .1);
@@ -64,6 +78,7 @@ h1 {
 .slide li,
 .slide p {
     margin-bottom: 2em;
+    line-height: 1.4;
 }
 
 .impress-not-supported{

@@ -1,5 +1,5 @@
-mixin slide(x, y, z, rotX, rotY, rotZ)
-  div(data-x=x,data-y=y,data-z=z,data-rotate-x=rotX,data-rotate-y=rotY,data-rotate-z=rotZ,class=(attributes.class||"") + " step")
+mixin slide(x, y, z, rotX, rotY, rotZ, scale)
+  div(data-x=x,data-y=y,data-z=z,data-rotate-x=rotX,data-rotate-y=rotY,data-rotate-z=rotZ,data-scale=scale||1,class=(attributes.class||"") + " step")
     block
 
 mixin poll(id, options)

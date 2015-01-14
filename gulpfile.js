@@ -4,7 +4,7 @@ var gulp        = require('gulp'),
     csso        = require('gulp-csso'),
     uglify      = require('gulp-uglify'),
     imagemin    = require('gulp-imagemin'),
-    jade        = require('gulp-jade'),
+    jade        = require('jade'),
     concat      = require('gulp-concat'),
     autoprefixer= require('gulp-autoprefixer'),
     livereload  = require('gulp-livereload'), // Livereload plugin needed: https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei
@@ -16,6 +16,17 @@ var gulp        = require('gulp'),
     path        = require('path'),
     gm          = require('gulp-gm'),
     rename      = require('gulp-rename');
+
+jade.filters.escape = function( block ) {
+  return block
+    .replace( /&/g, '&amp;'  )
+    .replace( /</g, '&lt;'   )
+    .replace( />/g, '&gt;'   )
+    .replace( /"/g, '&quot;' )
+    .replace( /#/g, '&#35;'  )
+    .replace( /\\/g, '\\\\'  )
+    .replace( /\n/g, '<br>'   );
+}
 
 
 // --- Basic Tasks ---
@@ -45,8 +56,6 @@ gulp.task('js', function() {
 
 gulp.task('templates', function() {
   return gulp.src('src/*.jade')
-    .pipe(jade())
-    .pipe(gulp.dest('dist/'))
     .pipe( livereload());
 });
 
