@@ -3,7 +3,6 @@ var gulp        = require('gulp'),
     less        = require('gulp-less'),
     csso        = require('gulp-csso'),
     uglify      = require('gulp-uglify'),
-    imagemin    = require('gulp-imagemin'),
     jade        = require('jade'),
     concat      = require('gulp-concat'),
     autoprefixer= require('gulp-autoprefixer'),
@@ -61,9 +60,6 @@ gulp.task('templates', function() {
 
 gulp.task('images', ['images-large', 'images-medium', 'images-original'], function() {
   return gulp.src('src/assets/images/*.png')
-    .pipe(imagemin({
-      progressive:true
-    }))
     .pipe(gulp.dest('dist/assets/images'));
 });
 
