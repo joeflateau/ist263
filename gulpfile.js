@@ -94,11 +94,27 @@ gulp.task('images-original', function(){
 gulp.task('express', function() {
   var server = require('http').createServer(app);
   var io = socketIo(server)
+
+  app.set('views', './src');
+  app.set('view engine', 'jade');
   app.use(express.static(path.resolve('./dist')));
+
+  app.get('/:deck', function(req, res){
+    return res.render(req.params.deck, { mode: "view", deck: req.params.deck });
+  });
+
+  app.get('/:deck/present', function(req, res){
+    return res.render(req.params.deck, { mode: "present", deck: req.params.deck });
+  });
+
+  app.get('/:deck/remote/:id', function(req, res){
+    return res.render(req.params.deck, { mode: "remote", id:req.params.id, deck: req.params.deck });
+  });
 
   var votes = {};
   io.on('connection', function(socket){
     socket.on('vote', function(data){
+      console.log('vote', data);
       var id = data.id,
           index = data.index;
 
@@ -109,6 +125,16 @@ gulp.task('express', function() {
 
       io.emit('vote:' + id, Object.keys(votes[id]).map(function(key){ return { key: key, value: votes[id][key]};}));
     });
+
+    socket.on('join', function(room) {
+      console.log(room);
+      socket.join(room);
+    });
+    socket.on('newSlide', function(room, slide){
+      console.log('newSlide', room, slide);
+      socket.broadcast.to(room).emit('newSlide', slide);
+
+    })
   });
 
   server.listen(1337);

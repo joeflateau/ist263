@@ -16,7 +16,7 @@ html(lang="en")
   head
     title= ""
     link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Open+Sans:light,regular,semibold,italic,italicsemibold')
-    link(rel='stylesheet', href='assets/css/pres.css')
+    link(rel='stylesheet', href='/assets/css/pres.css')
     meta(name="viewport", content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;")
   body
     div#impress
@@ -26,11 +26,32 @@ html(lang="en")
     script(src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js")
     script(src="//cdnjs.cloudflare.com/ajax/libs/impress.js/0.5.3/impress.min.js")
     script(src="/socket.io/socket.io.js")
-    script(src="assets/scripts/all.min.js")
+    script(src="/assets/scripts/all.min.js")
     script.
         var _impress = impress().init();
-        impressConsole().init('assets/css/impressConsole.css');
+        impressConsole().init('/assets/css/impressConsole.css');
         var socket = io();
         $(".poll").poll();
+
+    if mode == "present"
+      a.remote(target="_blank") Remote Control This
+      script.
+        var id = generateUUID();
+        socket.emit('join', id);
+        socket.on('newSlide', function(newSlide) { 
+          console.log(newSlide);
+          impress().goto(newSlide);
+        });
+        $(".remote").attr("href", "/#{deck}/remote/" + id);
+
+    if mode == "remote"
+      script.
+        var id = '#{id}';
+        var steps = $(".step");
+        socket.emit('join', id);
+        $("body").on("click", ".step", function(e) {
+          var i = steps.index(this);
+          socket.emit('newSlide', id, i);
+        });
 
     .hashtag #IST263JF

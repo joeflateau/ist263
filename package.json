@@ -26,6 +26,7 @@
     "tiny-lr": "^0.1.4"
   },
   "dependencies": {
-    "socket.io": "^1.2.1"
+    "socket.io": "^1.2.1",
+    "jade": "^1.9.0"
   }
 }
