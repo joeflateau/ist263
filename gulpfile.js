@@ -59,7 +59,7 @@ gulp.task('templates', function() {
 });
 
 gulp.task('images', ['images-large', 'images-medium', 'images-original'], function() {
-  return gulp.src('src/assets/images/*.png')
+  return gulp.src(['src/assets/images/*.png','src/assets/images/*.jpg'])
     .pipe(gulp.dest('dist/assets/images'));
 });
 
@@ -154,6 +154,8 @@ gulp.task('_watch', function () {
   gulp.watch('src/assets/scripts/*.js',['js']);
 
   gulp.watch('src/assets/images/*.png',['images']);
+
+  gulp.watch('src/assets/images/*.jpg',['images']);
 
   gulp.watch('src/*.jade',['templates']);
 });
