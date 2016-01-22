@@ -142,8 +142,8 @@ gulp.task('express', function() {
     })
   });
 
-  server.listen(1337);
-  gutil.log('Listening on port: 1337');
+  server.listen(3002);
+  gutil.log('Listening on port: 3002');
 });
 
 gulp.task('_watch', function () {
